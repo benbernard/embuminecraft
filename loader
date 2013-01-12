@@ -3,6 +3,17 @@ local file = args[1]
 print("Loading " .. file)
 local request = http.get("https://raw.github.com/benbernard/embuminecraft/master/" .. file)
 
-handle = fs.open(file, "w")
+dir = args[2]
+if dir == nil then
+    if fs.exists("/disk") then
+        dir = "/disk"
+    else
+        dir = ""
+    end
+end
+
+local_file = dir .. "/" .. file
+print "Writing " .. local_file
+handle = fs.open(local_file, "w")
 handle.write(requeset.readAll())
 handle.close()

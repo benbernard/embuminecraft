@@ -42,7 +42,7 @@ end
 
 mov.turn_to = function(facing)
     print("Turning to " .. facing)
-    if facing - mov.face >= 2 then
+    if math.abs(facing - mov.face) >= 2 then
         while not mov.has_facing(facing) do
             mov.right()
         end
@@ -77,4 +77,5 @@ is_cobble = function()
 end
 
 -- mov.return_to_base()
-mov.turn_to(2)
+-- mov.turn_to(2)
+mov.right()

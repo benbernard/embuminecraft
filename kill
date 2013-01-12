@@ -76,6 +76,6 @@ is_cobble = function()
     return turtle.compare()
 end
 
--- mov.return_to_base()
--- mov.turn_to(2)
+-- mov:return_to_base()
+-- mov:turn_to(2)
 mov:right()

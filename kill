@@ -36,14 +36,18 @@ mov.max_backward = function()
     end
 end
 
+mov.has_face = function(facing)
+    return facing == mov.face
+end
+
 mov.turn_to = function(facing)
     print("Turning to " .. facing)
     if facing - mov.face >= 2 then
-        while mov.face != facing do
+        while mov.has_facing(facing) do
             mov.right()
         end
     else
-        while facing != mov.face do
+        while mov.has_facing(facing) do
             mov.left()
         end
     end

@@ -88,7 +88,7 @@ mov = MoveTracker.new()
 print(mov.left)
 print(mov.left)
 print(mov)
-mov:left(mov)
+mov:left()
 
 -- mov:return_to_base()
 -- mov:turn_to(2)

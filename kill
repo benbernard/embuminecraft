@@ -12,7 +12,7 @@ end
 
 function MoveTracker.left(self)
     print("Turning left")
-    return turtle.left()
+    turtle.left()
 end
 
 --function MoveTracker.left(self)

@@ -11,7 +11,7 @@ function MoveTracker.new()
 end
 
 function MoveTracker.left(self)
-    print("Turning left")
+    --print("Turning left")
     self.face = (self.face - 1) % 4
     return turtle.left()
 end

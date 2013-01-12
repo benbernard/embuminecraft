@@ -2,53 +2,53 @@
 
 local mov = { face = 0 }
 
-mov.left = function ()
+mov.left = function (self)
     print("Turning left")
-    mov.face = (mov.face - 1) % 4
+    self.face = (self.face - 1) % 4
     return turtle.left()
 end
 
-mov.right = function ()
+mov.right = function (self)
     print("Turning right")
-    mov.face = (mov.face + 1) % 4
+    mov.face = (self.face + 1) % 4
     return turtle.right()
 end
 
-mov.f = function()
+mov.f = function(self)
     print("Move forward")
     return turtle.forward()
 end
 
-mov.b = function()
+mov.b = function(self)
     print("Move backward")
     return turtle.backward()
 end
 
-mov.max_forward = function()
+mov.max_forward = function(self)
     print("Max forward")
-    while mov.f() do
+    while mov:f() do
     end
 end
 
-mov.max_backward = function()
+mov.max_backward = function(self)
     print("Max backward")
-    while mov.b() do
+    while mov:b() do
     end
 end
 
-mov.has_facing = function(facing)
-    return facing == mov.face
+mov.has_facing = function(self, facing)
+    return facing == self.face
 end
 
-mov.turn_to = function(facing)
+mov.turn_to = function(self, facing)
     print("Turning to " .. facing)
-    if math.abs(facing - mov.face) >= 2 then
-        while not mov.has_facing(facing) do
-            mov.right()
+    if math.abs(facing - self.face) >= 2 then
+        while not self:has_facing(facing) do
+            self:right()
         end
     else
-        while not mov.has_facing(facing) do
-            mov.left()
+        while not self:has_facing(facing) do
+            self:left()
         end
     end
 end

@@ -36,7 +36,7 @@ mov.max_backward = function()
     end
 end
 
-mov.has_face = function(facing)
+mov.has_facing = function(facing)
     return facing == mov.face
 end
 

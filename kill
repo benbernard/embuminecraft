@@ -84,6 +84,9 @@ is_cobble = function()
     return turtle.compare()
 end
 
+mov = MoveTracker.new()
+mov:left()
+
 -- mov:return_to_base()
 -- mov:turn_to(2)
 mov:left()

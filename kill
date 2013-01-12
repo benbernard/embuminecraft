@@ -1,6 +1,6 @@
 --  vim: set ft=lua:
 
-local mov = { face = 0 }
+mov = { face = 0 }
 
 mov.left = function (self)
     print("Turning left")

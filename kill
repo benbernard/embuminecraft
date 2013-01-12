@@ -1,8 +1,16 @@
 --  vim: set ft=lua:
 
-mov = { face = 0 }
+MoveTracker = {}
+MoveTracker_mt = {}
+MoveTracker_mt.__index = MoveTracker
 
-mov.left = function(self)
+function MoveTracker.new()
+    local object = { face = 0 }
+    setmetatable(object, MoveTracker_mt)
+    return object
+end
+
+function MoveTracker.left(self)
     print("Turning left")
     self.face = (self.face - 1) % 4
     return turtle.left()

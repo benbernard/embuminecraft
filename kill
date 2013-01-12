@@ -65,11 +65,11 @@ function MoveTracker.return_to_base(self)
     print("Returning to base")
     self:turn_to(2)
     self:max_forward()
-    if is_cobble() then
+    if turtle.detect() then
         self:turn_to(3)
         self:max_forward()
         
-        if is_cobble() then
+        if turtle.detect() then
             self:turn_to(0)
         end
     end

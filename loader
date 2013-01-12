@@ -15,5 +15,5 @@ end
 local_file = dir .. "/" .. file
 print("Writing " .. local_file)
 handle = fs.open(local_file, "w")
-handle.write(requeset.readAll())
+handle.write(request.readAll())
 handle.close()

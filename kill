@@ -1,1 +1,40 @@
-print("Hello")
+--  vim: set ft=lua:
+
+local mov = { face = 0 }
+
+mov.left = function ()
+    mov.face = (mov.face + 1) % 4
+    return turtle.left()
+end
+
+mov.right = function ()
+    mov.face = (mov.face - 1) % 4
+    return turtle.right()
+end
+
+mov.f = function()
+    return turtle.forward()
+end
+
+mov.b = function()
+    return turtle.backward()
+end
+
+mov.max_forward = function()
+    while turtle.forward() do
+    end
+end
+
+-- Slot list --
+-- 1: Cobblestone
+-- 2: Fuel
+
+is_cobble = function()
+    turtle.select(1)
+    return turtle.compare()
+end
+
+mov.max_forward()
+print(is_cobble())
+
+

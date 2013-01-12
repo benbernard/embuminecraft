@@ -79,7 +79,7 @@ end
 -- 1: Cobblestone
 -- 2: Fuel
 
-is_cobble = function()
+function is_cobble()
     turtle.select(1)
     return turtle.compare()
 end

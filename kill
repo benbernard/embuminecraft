@@ -39,11 +39,11 @@ end
 mov.turn_to = function(facing)
     print("Turning to " .. facing)
     if facing - mov.face >= 2 then
-        while facing - mov.face != 0 do
+        while mov.face != facing do
             mov.right()
         end
     else
-        while facing - mov.face != 0 do
+        while facing != mov.face do
             mov.left()
         end
     end

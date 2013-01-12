@@ -16,70 +16,64 @@ function MoveTracker.left(self)
     return turtle.turnLeft()
 end
 
---function MoveTracker.left(self)
---    --print("Turning left")
---    self.face = (self.face - 1) % 4
---    return turtle.left()
---end
+function MoveTracker.right(self)
+    print("Turning right")
+    mov.face = (self.face + 1) % 4
+    return turtle.turnRight()
+end
 
---mov.right = function(self)
---    print("Turning right")
---    mov.face = (self.face + 1) % 4
---    return turtle.right()
---end
---
---mov.f = function(self)
---    print("Move forward")
---    return turtle.forward()
---end
---
---mov.b = function(self)
---    print("Move backward")
---    return turtle.backward()
---end
---
---mov.max_forward = function(self)
---    print("Max forward")
---    while mov:f() do
---    end
---end
---
---mov.max_backward = function(self)
---    print("Max backward")
---    while mov:b() do
---    end
---end
---
---mov.has_facing = function(self, facing)
---    return facing == self.face
---end
---
---mov.turn_to = function(self, facing)
---    print("Turning to " .. facing)
---    if math.abs(facing - self.face) >= 2 then
---        while not self:has_facing(facing) do
---            self:right()
---        end
---    else
---        while not self:has_facing(facing) do
---            self:left()
---        end
---    end
---end
---
---mov.return_to_base = function(self)
---    print("Returning to base")
---    self:turn_to(2)
---    self:max_forward()
---    if is_cobble() then
---        self:turn_to(3)
---        self:max_forward()
---        
---        if is_cobble() then
---            self:turn_to(0)
---        end
---    end
---end
+function MoveTracker.f(self)
+    print("Move forward")
+    return turtle.forward()
+end
+
+function MoveTracker.b(self)
+    print("Move backward")
+    return turtle.back()
+end
+
+function MoveTracker.max_forward(self)
+    print("Max forward")
+    while mov:f() do
+    end
+end
+
+function MoveTracker.max_backward(self)
+    print("Max backward")
+    while mov:b() do
+    end
+end
+
+mov.has_facing = function(self, facing)
+    return facing == self.face
+end
+
+mov.turn_to = function(self, facing)
+    print("Turning to " .. facing)
+    if math.abs(facing - self.face) >= 2 then
+        while not self:has_facing(facing) do
+            self:right()
+        end
+    else
+        while not self:has_facing(facing) do
+            self:left()
+        end
+    end
+end
+
+mov.return_to_base = function(self)
+    print("Returning to base")
+    self:turn_to(2)
+    self:max_forward()
+    if is_cobble() then
+        self:turn_to(3)
+        self:max_forward()
+        
+        if is_cobble() then
+            self:turn_to(0)
+        end
+    end
+end
 
 -- Slot list --
 -- 1: Cobblestone

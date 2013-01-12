@@ -2,13 +2,13 @@
 
 mov = { face = 0 }
 
-mov.left = function (self)
+mov.left = function(self)
     print("Turning left")
     self.face = (self.face - 1) % 4
     return turtle.left()
 end
 
-mov.right = function (self)
+mov.right = function(self)
     print("Turning right")
     mov.face = (self.face + 1) % 4
     return turtle.right()

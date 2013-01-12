@@ -1,0 +1,7 @@
+local args = {...}
+local file = args[1]
+local request = http.get("https://raw.github.com/benbernard/embuminecraft/master/" .. file)
+
+handle = fs.open(file, "w")
+handle.write(requeset.readAll())
+handle.close()

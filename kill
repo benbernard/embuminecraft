@@ -85,7 +85,8 @@ is_cobble = function()
 end
 
 mov = MoveTracker.new()
-print(mov)
+print(mov.left)
+print(mov.left)
 mov.left(mov)
 
 -- mov:return_to_base()

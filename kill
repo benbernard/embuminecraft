@@ -76,7 +76,6 @@ is_cobble = function()
     return turtle.compare()
 end
 
-print(mov:has_facing(2))
 -- mov:return_to_base()
 -- mov:turn_to(2)
--- mov:left()
+ mov:left()

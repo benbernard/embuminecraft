@@ -53,16 +53,16 @@ mov.turn_to = function(self, facing)
     end
 end
 
-mov.return_to_base = function()
+mov.return_to_base = function(self)
     print("Returning to base")
-    mov.turn_to(2)
-    mov.max_forward()
+    self:turn_to(2)
+    self:max_forward()
     if is_cobble() then
-        mov.turn_to(3)
-        mov.max_forward()
+        self:turn_to(3)
+        self:max_forward()
         
         if is_cobble() then
-            mov.turn_to(0)
+            self:turn_to(0)
         end
     end
 end

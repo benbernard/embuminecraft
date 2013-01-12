@@ -43,11 +43,11 @@ end
 mov.turn_to = function(facing)
     print("Turning to " .. facing)
     if facing - mov.face >= 2 then
-        while mov.has_facing(facing) do
+        while not mov.has_facing(facing) do
             mov.right()
         end
     else
-        while mov.has_facing(facing) do
+        while not mov.has_facing(facing) do
             mov.left()
         end
     end
@@ -76,4 +76,5 @@ is_cobble = function()
     return turtle.compare()
 end
 
-mov.return_to_base()
+-- mov.return_to_base()
+mov.turn_to(2)

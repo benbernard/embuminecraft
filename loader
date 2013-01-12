@@ -1,5 +1,6 @@
 local args = {...}
 local file = args[1]
+print("Loading " .. file)
 local request = http.get("https://raw.github.com/benbernard/embuminecraft/master/" .. file)
 
 handle = fs.open(file, "w")

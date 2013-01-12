@@ -11,7 +11,8 @@ function MoveTracker.new()
 end
 
 function MoveTracker.left(self)
-    print("Hello")
+    print("Turning left")
+    return turtle.left()
 end
 
 --function MoveTracker.left(self)

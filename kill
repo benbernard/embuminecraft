@@ -18,7 +18,7 @@ end
 
 function MoveTracker.right(self)
     print("Turning right")
-    mov.face = (self.face + 1) % 4
+    self.face = (self.face + 1) % 4
     return turtle.turnRight()
 end
 
@@ -34,13 +34,13 @@ end
 
 function MoveTracker.max_forward(self)
     print("Max forward")
-    while mov:f() do
+    while self:f() do
     end
 end
 
 function MoveTracker.max_backward(self)
     print("Max backward")
-    while mov:b() do
+    while self:b() do
     end
 end
 

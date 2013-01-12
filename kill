@@ -3,25 +3,63 @@
 local mov = { face = 0 }
 
 mov.left = function ()
-    mov.face = (mov.face + 1) % 4
+    print("Turning left")
+    mov.face = (mov.face - 1) % 4
     return turtle.left()
 end
 
 mov.right = function ()
-    mov.face = (mov.face - 1) % 4
+    print("Turning right")
+    mov.face = (mov.face + 1) % 4
     return turtle.right()
 end
 
 mov.f = function()
+    print("Move forward")
     return turtle.forward()
 end
 
 mov.b = function()
+    print("Move backward")
     return turtle.backward()
 end
 
 mov.max_forward = function()
-    while turtle.forward() do
+    print("Max forward")
+    while mov.f() do
+    end
+end
+
+mov.max_backward = function()
+    print("Max backward")
+    while mov.b() do
+    end
+end
+
+mov.turn_to = function(facing)
+    print("Turning to " .. facing)
+    if facing - mov.face >= 2 then
+        while facing - mov.face != 0 do
+            mov.right()
+        end
+    else
+        while facing - mov.face != 0 do
+            mov.left()
+        end
+    end
+end
+
+mov.return_to_base = function()
+    print("Returning to base")
+    mov.turn_to(2)
+    mov.max_forward()
+    if is_cobble() then
+        mov.turn_to(3)
+        mov.max_forward()
+        
+        if is_cobble() then
+            mov.turn_to(0)
+        end
     end
 end
 
@@ -34,7 +72,4 @@ is_cobble = function()
     return turtle.compare()
 end
 
-mov.max_forward()
-print(is_cobble())
-
-
+mov.return_to_base()

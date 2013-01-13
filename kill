@@ -64,26 +64,6 @@ function MoveTracker.turn_to(self, facing)
         return
     end
 
-    -- if self.face == 0 and facing == 3 then
-    --     self:left()
-    --     return
-    -- end
-
-    -- if self.face == 1 and facing == 0 then
-    --     self:left()
-    --     return
-    -- end
-
-    -- if self.face == 2 and facing == 1 then
-    --     self:left()
-    --     return
-    -- end
-
-    -- if self.face == 3 and facing == 2 then
-    --     self:left()
-    --     return
-    -- end
-
     while not self:has_facing(facing) do
         self:right()
     end
@@ -103,17 +83,23 @@ function MoveTracker.return_to_base(self)
     end
 end
 
+mov = MoveTracker.new()
+
 -- Slot list --
 -- 1: Cobblestone
 -- 2: Fuel
 
-function is_cobble()
-    turtle.select(1)
-    return turtle.compare()
+function kill_forward()
+    while 1 do
+        mov:max_forward()
+        if turtle.detect() then
+            break
+        else
+            while turtle.attack() do
+            end
+        end
+    end
 end
 
-mov = MoveTracker.new()
+kill_foward()
 
-mov:return_to_base()
---mov:turn_to(3)
--- mov:left()

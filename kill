@@ -61,6 +61,7 @@ function MoveTracker.turn_to(self, facing)
     mod_face = (facing +1) % 4
     if self.face == mod_face then
         self:left()
+        return
     end
 
     -- if self.face == 0 and facing == 3 then

@@ -6,10 +6,10 @@ mt = mov.MoveTracker.new()
 -- 1: Cobblestone
 -- 2: Fuel
 
-kill_forward = function(mov)
+kill_forward = function()
     print( "Killing forward")
     while 1 do
-        mov:max_forward()
+        mt:max_forward()
         if turtle.detect() then
             break
         else
@@ -19,11 +19,11 @@ kill_forward = function(mov)
     end
 end
 
-kill_one_forward = function(mov)
+kill_one_forward = function()
     while 1 do
         while turtle.attack() do
         end
-        if mov:f() then
+        if mt:f() then
             return
         end
     end
@@ -37,33 +37,33 @@ while 1 do
         count = count +1
         print("Killing row " .. count)
 
-        kill_forward(mov)
-        mov:turn_to(1)
+        kill_forward()
+        mt:turn_to(1)
 
         if turtle.detect() then
-            mov:return_to_base()
+            mt:return_to_base()
             break
         end
 
-        kill_one_forward(mov)
-        mov:turn_to(2)
-        kill_forward(mov)
-        mov:turn_to(1)
+        kill_one_forward()
+        mt:turn_to(2)
+        kill_forward()
+        mt:turn_to(1)
         if turtle.detect() then
-            mov:return_to_base()
+            mt:return_to_base()
             break
         end
-        kill_one_forward(mov)
-        mov:turn_to(0)
+        kill_one_forward()
+        mt:turn_to(0)
     end
 
-    mov:turn_to(2)
+    mt:turn_to(2)
     for slot = 1, 16, 1 do
         turtle.select(slot)
         turtle.drop()
     end
 
-    mov:turn_to(0)
+    mt:turn_to(0)
 
 
     while turtle.getFuelLevel() < 4400 do

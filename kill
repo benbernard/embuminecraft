@@ -67,8 +67,8 @@ while 1 do
 
     while turtle.getFuelLevel() < 1255 do
         print("Waiting for fuel up to 1255, Currently at " .. turtle.getFuelLevel())
+        sleep(10)
         mt:return_to_base()
-        sleep(1)
     end
 end
 

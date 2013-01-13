@@ -1,0 +1,91 @@
+--  vim: set ft=lua:
+
+MoveTracker = {}
+MoveTracker_mt = {}
+MoveTracker_mt.__index = MoveTracker
+
+debug=false
+
+function log(msg)
+    if debug then
+        print(msg)
+    end
+end
+
+function MoveTracker.new()
+    local object = { face = 0 }
+    setmetatable(object, MoveTracker_mt)
+    return object
+end
+
+function MoveTracker.left(self)
+    log("Turning left")
+    self.face = (self.face - 1) % 4
+    ret = turtle.turnLeft()
+    turtle.suck()
+    return ret
+end
+
+function MoveTracker.right(self)
+    log("Turning right")
+    self.face = (self.face + 1) % 4
+    ret = turtle.turnRight()
+    turtle.suck()
+    return ret
+end
+
+function MoveTracker.f(self)
+    log("Move forward")
+    ret =  turtle.forward()
+    turtle.suck()
+    return ret
+end
+
+function MoveTracker.b(self)
+    log("Move backward")
+    return turtle.back()
+end
+
+function MoveTracker.max_forward(self)
+    log("Max forward")
+    while self:f() do
+    end
+end
+
+function MoveTracker.max_backward(self)
+    log("Max backward")
+    while self:b() do
+    end
+end
+
+function MoveTracker.has_facing(self, facing)
+    return facing == self.face
+end
+
+function MoveTracker.turn_to(self, facing)
+    log("Turning to " .. facing .. " current face " .. self.face)
+    mod_face = (facing +1) % 4
+    if self.face == mod_face then
+        self:left()
+        return
+    end
+
+    while not self:has_facing(facing) do
+        self:right()
+    end
+end
+
+function MoveTracker.return_to_base(self)
+    log("Returning to base")
+    self:turn_to(2)
+    self:max_forward()
+    if turtle.detect() then
+        self:turn_to(3)
+        self:max_forward()
+        
+        if turtle.detect() then
+            self:turn_to(0)
+        end
+    end
+end
+

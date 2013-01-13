@@ -26,6 +26,7 @@ if file == "all" then
     loadScript("fuel-status")
     loadScript("mov")
     loadScript("return-to-base")
+    loadScript("loader")
 else
     loadScript(file)
 end

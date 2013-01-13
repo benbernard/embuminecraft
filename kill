@@ -2,12 +2,6 @@ os.loadAPI("/mov")
 
 mt = mov.MoveTracker.new()
 
--- Slot list --
--- 1: Cobblestone
--- 2: Fuel
-
-
-
 count = 0
 while 1 do
     while 1 do

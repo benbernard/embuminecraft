@@ -89,7 +89,7 @@ mov = MoveTracker.new()
 -- 1: Cobblestone
 -- 2: Fuel
 
-function kill_forward(mov)
+kill_forward = function(mov)
     while 1 do
         mov:max_forward()
         if turtle.detect() then
@@ -101,4 +101,4 @@ function kill_forward(mov)
     end
 end
 
-kill_foward(mov)
+kill_forward(mov)

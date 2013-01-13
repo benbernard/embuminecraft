@@ -78,10 +78,10 @@ end
 function MoveTracker.return_to_base(self)
     log("Returning to base")
     self:turn_to(2)
-    self:max_forward()
+    self:kill_forward()
     if turtle.detect() then
         self:turn_to(3)
-        self:max_forward()
+        self:kill_forward()
         
         if turtle.detect() then
             self:turn_to(0)

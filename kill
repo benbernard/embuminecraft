@@ -56,7 +56,7 @@ function MoveTracker.has_facing(self, facing)
 end
 
 function MoveTracker.turn_to(self, facing)
-    log("Turning to " .. facing)
+    log("Turning to " .. facing .. " current face " .. self.face)
     if math.abs(facing - self.face) <= 1 then
         while not self:has_facing(facing) do
             self:right()

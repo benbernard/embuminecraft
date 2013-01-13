@@ -27,5 +27,3 @@ if file == "all" then
 else
     loadScript(file)
 end
-
-

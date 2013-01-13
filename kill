@@ -127,6 +127,7 @@ while 1 do
         mov:return_to_base()
         break
     end
+    mov:f()
     mov:turn_to(0)
 end
 

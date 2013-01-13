@@ -58,13 +58,13 @@ end
 
 function MoveTracker.turn_to(self, facing)
     log("Turning to " .. facing .. " current face " .. self.face)
-    turns = math.abs(facing-self.face)
+    turns = facing-self.face
 
     if turns == 0 then
         return
     end
 
-    if turns > 2 then
+    if turns == 3 or turns == -3 then
         self:right()
     end
 

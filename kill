@@ -46,7 +46,7 @@ while 1 do
     end
 
     mt:turn_to(0)
-    mt:refuel()
+    refuel()
 end
 
 

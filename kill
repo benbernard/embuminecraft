@@ -111,7 +111,7 @@ while 1 do
     end
 
     kill_forward(mov)
-    mov:turn_to(2)
+    mov:turn_to(1)
     if turtle.detect() then
         mov:return_to_base()
         break
@@ -119,7 +119,7 @@ while 1 do
     mov:f()
     mov:turn_to(3)
     kill_forward(mov)
-    mov:turn_to(2)
+    mov:turn_to(1)
     if turtle.detect() then
         mov:return_to_base()
         break

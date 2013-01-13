@@ -89,3 +89,25 @@ function MoveTracker.return_to_base(self)
     end
 end
 
+function MoveTracker.kill_forward(self)
+    print( "Killing forward")
+    while 1 do
+        self:max_forward()
+        if turtle.detect() then
+            break
+        else
+            while turtle.attack() do
+            end
+        end
+    end
+end
+
+function MoveTracker.kill_one_forward(self)
+    while 1 do
+        while turtle.attack() do
+        end
+        if self:f() then
+            return
+        end
+    end
+end

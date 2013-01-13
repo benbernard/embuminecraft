@@ -101,4 +101,20 @@ kill_forward = function(mov)
     end
 end
 
-kill_forward(mov)
+while 1 do
+    kill_forward(mov)
+    mov:turn_to(2)
+    if turtle.detect() then
+        mov:return_to_base()
+        break
+    end
+    mov:f()
+    mov:turn_to(3)
+    kill_forward(mov)
+    mov:turn_to(2)
+    if turtle.detect() then
+        mov:return_to_base()
+        break
+    end
+    mov:turn_to(0)
+end

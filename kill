@@ -1,6 +1,6 @@
 os.loadAPI("/mov")
 
-mov = MoveTracker.new()
+mov = mov.MoveTracker.new()
 
 -- Slot list --
 -- 1: Cobblestone

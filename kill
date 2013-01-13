@@ -4,7 +4,7 @@ MoveTracker = {}
 MoveTracker_mt = {}
 MoveTracker_mt.__index = MoveTracker
 
-debug=true
+debug=false
 
 function log(msg)
     if debug then
@@ -90,6 +90,7 @@ mov = MoveTracker.new()
 -- 2: Fuel
 
 kill_forward = function(mov)
+    print( "Killing forward")
     while 1 do
         mov:max_forward()
         if turtle.detect() then
@@ -105,7 +106,7 @@ count = 0
 while 1 do
     count = count +1
 
-    if count > 5 then
+    if count > 2 then
         mov:return_to_base()
         break
     end

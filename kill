@@ -81,7 +81,7 @@ function MoveTracker.turn_to(self, facing)
     end
 
     while not self:has_facing(facing) do
-        self:left()
+        self:right()
     end
 end
 

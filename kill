@@ -1,4 +1,4 @@
-MoveTracker = os.loadAPI("/mov")
+os.loadAPI("/mov")
 
 mov = MoveTracker.new()
 

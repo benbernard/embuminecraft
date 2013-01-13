@@ -24,6 +24,7 @@ end
 if file == "all" then
     loadScript("kill")
     loadScript("fuel-status")
+    loadScript("mov")
 else
     loadScript(file)
 end

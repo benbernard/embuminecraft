@@ -1,2 +1,2 @@
 print(shell)
-shell.execute('/loader', 'all', '/')
+shell.run('/loader', 'all', '/')

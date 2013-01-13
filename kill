@@ -60,7 +60,22 @@ function MoveTracker.turn_to(self, facing)
     log("Turning to " .. facing .. " current face " .. self.face)
     mod_face = (facing +1) % 4
 
-    if self.face == mod_face then
+    if self.face == 0 and facing == 3 then
+        self:left()
+        return
+    end
+
+    if self.face == 1 and facing == 0 then
+        self:left()
+        return
+    end
+
+    if self.face == 2 and facing == 1 then
+        self:left()
+        return
+    end
+
+    if self.face == 3 and facing == 2 then
         self:left()
         return
     end

@@ -1,2 +1,2 @@
-print("shell")
+print(shell)
 shell.execute('/loader', 'all', '/')

@@ -33,35 +33,43 @@ end
 
 count = 0
 while 1 do
-    count = count +1
-    print("Killing row " .. count)
+    while 1 do
+        count = count +1
+        print("Killing row " .. count)
 
-    kill_forward(mov)
-    mov:turn_to(1)
+        kill_forward(mov)
+        mov:turn_to(1)
 
-    if turtle.detect() then
-        mov:return_to_base()
-        break
+        if turtle.detect() then
+            mov:return_to_base()
+            break
+        end
+
+        kill_one_forward(mov)
+        mov:turn_to(2)
+        kill_forward(mov)
+        mov:turn_to(1)
+        if turtle.detect() then
+            mov:return_to_base()
+            break
+        end
+        kill_one_forward(mov)
+        mov:turn_to(0)
     end
 
-    kill_one_forward(mov)
     mov:turn_to(2)
-    kill_forward(mov)
-    mov:turn_to(1)
-    if turtle.detect() then
-        mov:return_to_base()
-        break
+    for slot = 1, 16, 1 do
+        turtle.select(slot)
+        turtle.drop()
     end
-    kill_one_forward(mov)
+
     mov:turn_to(0)
-end
 
-mov:turn_to(2)
-for slot = 1, 16, 1 do
-    turtle.select(slot)
-    turtle.drop()
-end
 
-mov:turn_to(0)
+    while turtle.getFuelLevel() < 255 do
+        print("Waiting for fuel up to 255, Currently at " .. turtle.getFuelLevel())
+        sleep(1)
+    end
+end
 
 

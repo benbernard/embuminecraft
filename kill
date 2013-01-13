@@ -21,18 +21,24 @@ end
 function MoveTracker.left(self)
     log("Turning left")
     self.face = (self.face - 1) % 4
-    return turtle.turnLeft()
+    ret = turtle.turnLeft()
+    turtle.suck()
+    return ret
 end
 
 function MoveTracker.right(self)
     log("Turning right")
     self.face = (self.face + 1) % 4
-    return turtle.turnRight()
+    ret = turtle.turnRight()
+    turtle.suck()
+    return ret
 end
 
 function MoveTracker.f(self)
     log("Move forward")
-    return turtle.forward()
+    ret =  turtle.forward()
+    turtle.suck()
+    return ret
 end
 
 function MoveTracker.b(self)

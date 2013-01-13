@@ -91,5 +91,5 @@ print(mov)
 -- mov:left()
 
 -- mov:return_to_base()
-mov:turn_to(2)
+mov:turn_to(3)
 -- mov:left()

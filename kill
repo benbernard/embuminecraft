@@ -66,7 +66,7 @@ while 1 do
     mov:turn_to(0)
 
 
-    while turtle.getFuelLevel() < 255 do
+    while turtle.getFuelLevel() < 4400 do
         print("Waiting for fuel up to 255, Currently at " .. turtle.getFuelLevel())
         sleep(1)
     end

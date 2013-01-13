@@ -10,6 +10,7 @@ function log(msg)
     if debug then
         print(msg)
     end
+end
 
 function MoveTracker.new()
     local object = { face = 0 }

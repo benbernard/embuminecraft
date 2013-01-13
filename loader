@@ -1,19 +1,31 @@
 local args = {...}
 local file = args[1]
-print("Loading " .. file)
-local request = http.get("https://raw.github.com/benbernard/embuminecraft/master/" .. file)
 
-dir = args[2]
-if dir == nil then
-    if fs.exists("/disk") then
-        dir = "/disk"
-    else
-        dir = ""
+function loadScript(file)
+    print("Loading " .. file)
+    local request = http.get("https://raw.github.com/benbernard/embuminecraft/master/" .. file)
+
+    dir = args[2]
+    if dir == nil then
+        if fs.exists("/disk") then
+            dir = "/disk"
+        else
+            dir = ""
+        end
     end
+
+    local_file = dir .. "/" .. file
+    print("Writing " .. local_file)
+    handle = fs.open(local_file, "w")
+    handle.write(request.readAll())
+    handle.close()
 end
 
-local_file = dir .. "/" .. file
-print("Writing " .. local_file)
-handle = fs.open(local_file, "w")
-handle.write(request.readAll())
-handle.close()
+if file == "all" then
+    loadScript("kill")
+    loadScript("fuel-status")
+else
+    loadScript(file)
+end
+
+

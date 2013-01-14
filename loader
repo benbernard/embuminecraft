@@ -1,17 +1,13 @@
 local args = {...}
 local file = args[1]
 
-function loadScript(file)
+function loadScript(file, dir)
     print("Loading " .. file)
     local request = http.get("https://raw.github.com/benbernard/embuminecraft/master/" .. file)
 
-    dir = args[2]
-    if dir == nil then
-        if fs.exists("/disk") then
-            dir = "/disk"
-        else
-            dir = ""
-        end
+    if not fs.exists(dir) then
+        print("Directory does not exist " .. dir)
+        return
     end
 
     local_file = dir .. "/" .. file
@@ -21,13 +17,21 @@ function loadScript(file)
     handle.close()
 end
 
-if file == "all" then
-    loadScript("kill")
-    loadScript("fuel-status")
-    loadScript("mov")
-    loadScript("return-to-base")
-    loadScript("loader")
-    loadScript("startup")
+if args[2] == nil then
+    dirs = { '/', '/disk' }
 else
-    loadScript(file)
+    dirs = { args[2] }
+end
+
+for i,dir in ipairs(dirs) do
+    if file == "all" then
+        loadScript("kill", dir)
+        loadScript("fuel-status", dir)
+        loadScript("mov", dir)
+        loadScript("return-to-base", dir)
+        loadScript("loader", dir)
+        loadScript("startup", dir)
+    else
+        loadScript(file, dir)
+    end
 end

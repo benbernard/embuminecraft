@@ -2,4 +2,5 @@ os.loadAPI('/benpi')
 
 args = {...}
 
-monitor = benpi.get_monitor(args[1])
+b = benpi.BenPI.new()
+monitor = b.clear()

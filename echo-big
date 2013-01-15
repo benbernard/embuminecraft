@@ -2,9 +2,9 @@ args  = {...}
 
 os.loadAPI('/benpi')
 
-monitor = benpi.get_monitor()
+b = benpi.BenPI.new()
+message = ""
 for i,str in ipairs(args) do
-    monitor.write(str .. " ")
+    message = message .. " " .. str
 end
-oldx, oldy = monitor.getCursorPos()
-monitor.setCursorPos(1, oldy+1)
+b.writeLine(message)

@@ -1,5 +1,5 @@
 function find_peripheral(type_string)
-    sides = { "front", "back", "left", "right" }
+    sides = { "front", "back", "right", "left", "top", "bottom" }
     for i,side in ipairs(sides) do
         if peripheral.getType(side) == type_string then
             print("Found " .. type_string .. " on " .. side)

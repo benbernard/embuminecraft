@@ -16,7 +16,7 @@ function digRow(max)
     count=0
     while true do
         -- only go forward up to max, modify max_forward
-        count += mt:max_forward(max - count)
+        count = count + mt:max_forward(max - count)
         if count >= max then
             return count
         end

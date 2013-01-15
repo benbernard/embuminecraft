@@ -58,14 +58,15 @@ function BenPI.get_modem(self)
     return self.modem
 end
 
-function BenPI.writeLine(message, monitor)
-    if not monitor then
-        monitor = get_monitor()
-    end
-
-monitor = benpi.get_monitor()
-for i,str in ipairs(args) do
-    monitor.write(str .. " ")
+-- side is optional
+function BenPI.writeLine(self, message, side)
+    monitor = self:get_monitor(side)
+    monitor.write(message)
+    oldx, oldy = monitor.getCursorPos()
+    monitor.setCursorPos(1, oldy+1)
 end
-oldx, oldy = monitor.getCursorPos()
-monitor.setCursorPos(1, oldy+1)
+
+function BenPI.write(self, message, side)
+    monitor = self:get_monitor(side)
+    monitor.write(message)
+end

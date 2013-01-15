@@ -38,6 +38,7 @@ if file == "all" then
     else
         loadScript("echo-big", dirs)
         loadScript("loader", dirs)
+        loadScript("benpi", dirs)
     end
 else
     loadScript(file, dirs)

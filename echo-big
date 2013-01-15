@@ -6,4 +6,5 @@ monitor = benpi.get_monitor()
 for i,str in ipairs(args) do
     monitor.write(str .. " ")
 end
-monitor.write("\n")
+oldx, oldy = monitor.getCursorPos()
+monitor.setCursorPos(oldx, oldy+1)

@@ -41,6 +41,7 @@ if file == "all" then
         loadScript("start-monitor", dirs)
         loadScript("loader", dirs)
         loadScript("benpi", dirs)
+        loadScript("rednet-echo", dirs)
     end
 else
     loadScript(file, dirs)

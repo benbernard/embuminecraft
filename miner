@@ -46,7 +46,7 @@ max_row = 10
 
 while true do
     row_size = dig_row(max_row, match_slots)
-    for i=0, row_size do
+    for i=1, row_size do
         mt:b()
     end
 

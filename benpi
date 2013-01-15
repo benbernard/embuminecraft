@@ -70,3 +70,8 @@ function BenPI.write(self, message, side)
     monitor = self:get_monitor(side)
     monitor.write(message)
 end
+
+function BenPI.clear(self, message, side)
+    monitor = self:get_monitor(side)
+    monitor.clear()
+end

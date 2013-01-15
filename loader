@@ -5,14 +5,14 @@ function loadScript(file, dirs)
     print("Loading " .. file)
     local request = http.get("https://raw.github.com/benbernard/embuminecraft/master/" .. file)
 
-    if not fs.exists(dir) then
-        print("Directory does not exist " .. dir)
-        return
-    end
-
     contents = request.readAll()
 
     for i,dir in ipairs(dirs) do
+        if not fs.exists(dir) then
+            print("Directory does not exist " .. dir)
+            next
+        end
+
         local_file = dir .. "/" .. file
         print("Writing " .. local_file)
         handle = fs.open(local_file, "w")

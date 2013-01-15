@@ -46,11 +46,14 @@ function MoveTracker.b(self)
     return turtle.back()
 end
 
-function MoveTracker.max_forward(self)
+function MoveTracker.max_forward(self, max)
     log("Max forward")
     count = 0
     while self:f() do
         count = count +1
+        if max and count >= max then
+            return count
+        end
     end
     return count
 end

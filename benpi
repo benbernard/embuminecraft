@@ -1,4 +1,25 @@
-function find_peripheral(type_string, preferred_side)
+BenPI = {}
+BenPI_mt = {}
+BenPI_mt.__index = BenPI
+
+debug=true
+
+function log(msg)
+    if debug then
+        print(msg)
+    end
+end
+
+function BenPI.new()
+    local object = { }
+    setmetatable(object, MoveTracker_mt)
+
+    object.sides = {}
+
+    return object
+end
+
+function BenPI.find_peripheral(self, type_string, preferred_side)
     sides = { "front", "back", "right", "left", "top", "bottom" }
     if preferred_side then
         table.insert(sides, 1, preferred_side)
@@ -7,15 +28,30 @@ function find_peripheral(type_string, preferred_side)
     for i,side in ipairs(sides) do
         if peripheral.getType(side) == type_string then
             print("Found " .. type_string .. " on " .. side)
-            return peripheral.wrap(side)
+            periph = peripheral.wrap(side)
+            self.sides[side] = periph
+            return periph
         end
     end
 end
 
-function get_monitor(preferred_side)
+function BenPI.get_monitor(self, preferred_side)
+    if self.monitor
     return find_peripheral("monitor", preferred_side)
 end
 
-function get_modem(preferred_side)
+function BenPI.get_modem(preferred_side)
     return find_peripheral("modem", preferred_side)
 end
+
+function BenPI.writeLine(message, monitor)
+    if not monitor then
+        monitor = get_monitor()
+    end
+
+monitor = benpi.get_monitor()
+for i,str in ipairs(args) do
+    monitor.write(str .. " ")
+end
+oldx, oldy = monitor.getCursorPos()
+monitor.setCursorPos(1, oldy+1)

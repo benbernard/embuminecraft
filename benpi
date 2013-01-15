@@ -54,8 +54,8 @@ function BenPI.get_monitor(self, preferred_side)
     return self.monitor
 end
 
-function BenPI.get_modem(preferred_side)
-    return find_peripheral("modem", preferred_side)
+function BenPI.get_modem(self)
+    return self.modem
 end
 
 function BenPI.writeLine(message, monitor)

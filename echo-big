@@ -2,7 +2,7 @@ args  = {...}
 
 os.loadAPI('/benpi')
 
-monitor = benpi.find_monitor()
+monitor = benpi.get_monitor()
 for i,str in ipairs(args) do
     monitor.write(str .. " ")
 end

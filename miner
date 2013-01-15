@@ -25,7 +25,7 @@ function dig_row(max)
             mt:digUp()
         end
 
-        if matches_any(match_sides, turtle.compareDown) then
+        if matches_any(match_slots, turtle.compareDown) then
             mt:digDown()
         end
 

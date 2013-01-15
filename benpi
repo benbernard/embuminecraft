@@ -77,7 +77,7 @@ function BenPI.write(self, message, side)
     monitor.write(message)
 end
 
-function BenPI.clear(self, message, side)
+function BenPI.clear(self, side)
     monitor = self:get_monitor(side)
     monitor.clear()
     monitor.setCursorPos(1,1)

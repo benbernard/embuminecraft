@@ -7,4 +7,4 @@ for i,str in ipairs(args) do
     monitor.write(str .. " ")
 end
 oldx, oldy = monitor.getCursorPos()
-monitor.setCursorPos(oldx, oldy+1)
+monitor.setCursorPos(1, oldy+1)

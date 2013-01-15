@@ -34,6 +34,7 @@ if file == "all" then
     loadScript("return-to-base", dirs)
     loadScript("loader", dirs)
     loadScript("startup", dirs)
+    loadScript("echo-big", dirs)
 else
     loadScript(file, dirs)
 end

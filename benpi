@@ -78,3 +78,15 @@ function BenPI.clear(self, side)
     monitor.clear()
     monitor.setCursorPos(1,1)
 end
+
+function BenPI.open_modem(self)
+    for side, periph in ipairs(self.sides) do
+        if periph == self.modem then
+            rednet.open(side)
+            return true
+        end
+    end
+    log("Could not find modem to open!")
+    return false
+end
+

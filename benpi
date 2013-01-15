@@ -80,7 +80,7 @@ function BenPI.write(self, message, side)
         write_string = string.sub(message, 1, max_x)
         monitor.write(write_string)
         self:nextLine(side)
-        message = string.sub(message, max_x, -1)
+        message = string.sub(message, max_x+1, -1)
     end
 
     monitor.write(message)

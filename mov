@@ -48,8 +48,11 @@ end
 
 function MoveTracker.max_forward(self)
     log("Max forward")
+    count = 0
     while self:f() do
+        count = count +1
     end
+    return count
 end
 
 function MoveTracker.max_backward(self)

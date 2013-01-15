@@ -37,6 +37,7 @@ if file == "all" then
         loadScript("startup", dirs)
     else
         loadScript("echo-big", dirs)
+        loadScript("monitor-clear", dirs)
         loadScript("loader", dirs)
         loadScript("benpi", dirs)
     end

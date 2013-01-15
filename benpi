@@ -1,5 +1,9 @@
-function find_peripheral(type_string)
+function find_peripheral(type_string, preferred_side)
     sides = { "front", "back", "right", "left", "top", "bottom" }
+    if preferred_side then
+        table.insert(sides, 1, preferred_side)
+    end
+
     for i,side in ipairs(sides) do
         if peripheral.getType(side) == type_string then
             print("Found " .. type_string .. " on " .. side)

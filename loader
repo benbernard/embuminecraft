@@ -10,14 +10,13 @@ function loadScript(file, dirs)
     for i,dir in ipairs(dirs) do
         if not fs.exists(dir) then
             print("Directory does not exist " .. dir)
-            next
+        else 
+            local_file = dir .. "/" .. file
+            print("Writing " .. local_file)
+            handle = fs.open(local_file, "w")
+            handle.write(contents)
+            handle.close()
         end
-
-        local_file = dir .. "/" .. file
-        print("Writing " .. local_file)
-        handle = fs.open(local_file, "w")
-        handle.write(contents)
-        handle.close()
     end
 end
 

@@ -28,13 +28,17 @@ else
 end
 
 if file == "all" then
-    loadScript("kill", dirs)
-    loadScript("fuel-status", dirs)
-    loadScript("mov", dirs)
-    loadScript("return-to-base", dirs)
-    loadScript("loader", dirs)
-    loadScript("startup", dirs)
-    loadScript("echo-big", dirs)
+    if turtle then
+        loadScript("kill", dirs)
+        loadScript("fuel-status", dirs)
+        loadScript("mov", dirs)
+        loadScript("return-to-base", dirs)
+        loadScript("loader", dirs)
+        loadScript("startup", dirs)
+    else
+        loadScript("echo-big", dirs)
+        loadScript("loader", dirs)
+    end
 else
     loadScript(file, dirs)
 end

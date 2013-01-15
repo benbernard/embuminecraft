@@ -79,7 +79,7 @@ function BenPI.write(self, message, side)
     while max_x < string.len(message) do
         write_string = string.sub(message, 1, max_x)
         monitor.write(write_string)
-        b:nextLine(side)
+        self:nextLine(side)
         message = string.sub(message, max_x, -1)
     end
 

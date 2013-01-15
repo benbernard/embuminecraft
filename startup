@@ -1,2 +1,3 @@
 print(shell)
 shell.run('/loader', 'all', '/')
+shell.run('kill')

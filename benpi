@@ -40,6 +40,10 @@ function BenPI.find_peripheral(self, type_string, preferred_side)
 end
 
 function BenPI.get_monitor(self, preferred_side)
+    log("called get_monitor")
+    if preferred_side then
+        log("for side " .. side)
+    end
     if preferred_side then
         if self.sides[preferred_side] then
             return self.sides[preferred_side]

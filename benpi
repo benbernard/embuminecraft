@@ -8,10 +8,10 @@ function find_peripheral(type_string)
     end
 end
 
-function get_monitor() do
+function get_monitor()
     return find_peripheral("monitor")
 end
 
-function get_modem() do
+function get_modem()
     return find_peripheral("modem")
 end

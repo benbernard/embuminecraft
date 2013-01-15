@@ -1,0 +1,17 @@
+function find_peripheral(type_string)
+    sides = { "front", "back", "left", "right" }
+    for i,side in ipairs(sides) do
+        if peripheral.getType(side) == type_string then
+            print("Found " .. type_string .. " on " .. side)
+            return peripheral.wrap(side)
+        end
+    end
+end
+
+function get_monitor() do
+    return find_peripheral("monitor")
+end
+
+function get_modem() do
+    return find_peripheral("modem")
+end

@@ -17,6 +17,7 @@ function BenPI.new()
     object.sides = {}
     log(object)
     log(object.sides)
+    log(object.find_peripheral)
 
     object.monitor = object:find_peripheral("monitor")
     object.modem = object:find_peripheral("modem")

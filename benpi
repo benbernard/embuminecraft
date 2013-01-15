@@ -2,7 +2,7 @@ BenPI = {}
 BenPI_mt = {}
 BenPI_mt.__index = BenPI
 
-debug=false
+debug=true
 
 function log(msg)
     if debug then

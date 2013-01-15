@@ -7,4 +7,4 @@ message = ""
 for i,str in ipairs(args) do
     message = message .. " " .. str
 end
-b.writeLine(message)
+b:writeLine(message)

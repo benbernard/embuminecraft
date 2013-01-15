@@ -12,9 +12,10 @@ end
 
 function BenPI.new()
     local object = { }
-    setmetatable(object, MoveTracker_mt)
+    setmetatable(object, BenPI_mt)
 
     object.sides = {}
+
     object.monitor = object:find_peripheral("monitor")
     object.modem = object:find_peripheral("modem")
 

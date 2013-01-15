@@ -11,10 +11,12 @@ function log(msg)
 end
 
 function BenPI.new()
-    local object = { }
+    local object = {}
     setmetatable(object, BenPI_mt)
 
     object.sides = {}
+    log(object)
+    log(object.sides)
 
     object.monitor = object:find_peripheral("monitor")
     object.modem = object:find_peripheral("modem")

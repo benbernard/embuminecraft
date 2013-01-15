@@ -37,7 +37,7 @@ function dig_row(max, slots)
     end
 end
 
-match_slots = {1,2}
+match_slots = {1, 2, 3}
 col_size = 1
 max_col = 4
 max_row = 10

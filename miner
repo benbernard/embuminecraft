@@ -5,7 +5,9 @@ mt = mov.MoveTracker.new()
 function matches_any(slots, comparison)
     for i,slot in ipairs(slots) do
         turtle.select(slot)
+        print("Comparing to slot " .. slot)
         if comparison() then
+            print("Found block!")
             return true
         end
     end

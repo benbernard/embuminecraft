@@ -15,6 +15,8 @@ function BenPI.new()
     setmetatable(object, MoveTracker_mt)
 
     object.sides = {}
+    object.monitor = object:get_monitor()
+    object.modem = object:get_modem()
 
     return object
 end
@@ -36,8 +38,20 @@ function BenPI.find_peripheral(self, type_string, preferred_side)
 end
 
 function BenPI.get_monitor(self, preferred_side)
-    if self.monitor
-    return find_peripheral("monitor", preferred_side)
+    if preferred_side then
+        if self.sides[preferred_side] then
+            return self.sides[preferred_side]
+        else
+            return self:find_peripheral("monitor", preferred_side)
+        end
+    end
+
+    if self.monitor then
+        return self.monitor
+    end
+
+    self.monitor = self:find_peripheral("monitor", preferred_side)
+    return self.monitor
 end
 
 function BenPI.get_modem(preferred_side)

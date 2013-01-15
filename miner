@@ -12,7 +12,7 @@ function matches_any(slots, comparison)
     return false
 end
 
-function digRow(max)
+function dig_row(max)
     count=0
     while true do
         -- only go forward up to max, modify max_forward
@@ -43,7 +43,7 @@ max_col = 4
 max_row = 10
 
 while true do
-    row_size = digRow()
+    row_size = dig_row(max_row)
     for i=0, row_size do
         mt:b()
     end

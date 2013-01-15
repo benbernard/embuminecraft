@@ -8,7 +8,7 @@ function find_peripheral(type_string)
     end
 end
 
-function get_monitor()
+get_monitor = function()
     return find_peripheral("monitor")
 end
 

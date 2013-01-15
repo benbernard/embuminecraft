@@ -29,6 +29,7 @@ end
 if file == "all" then
     if turtle then
         loadScript("kill", dirs)
+        loadScript("miner", dirs)
         loadScript("fuel-status", dirs)
         loadScript("mov", dirs)
         loadScript("return-to-base", dirs)

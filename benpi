@@ -8,10 +8,10 @@ function find_peripheral(type_string)
     end
 end
 
-function get_monitor()
-    return find_peripheral("monitor")
+function get_monitor(preferred_side)
+    return find_peripheral("monitor", preferred_side)
 end
 
-function get_modem()
-    return find_peripheral("modem")
+function get_modem(preferred_side)
+    return find_peripheral("modem", preferred_side)
 end

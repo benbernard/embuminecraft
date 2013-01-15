@@ -3,4 +3,4 @@ os.loadAPI('/benpi')
 args = {...}
 
 b = benpi.BenPI.new()
-b:clear()
+b:clear(args[1])

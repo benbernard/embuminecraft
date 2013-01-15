@@ -62,14 +62,27 @@ end
 
 -- side is optional
 function BenPI.writeLine(self, message, side)
+    self:write(message, side)
+    self:nextLine(side)
+end
+
+function BenPI.nextLine(self, side)
     monitor = self:get_monitor(side)
-    monitor.write(message)
     oldx, oldy = monitor.getCursorPos()
     monitor.setCursorPos(1, oldy+1)
 end
 
 function BenPI.write(self, message, side)
     monitor = self:get_monitor(side)
+    max_x, max_y = monitor.getSize()
+
+    while max_x < string.len(message) do
+        write_string = string.sub(message, 1, max_x)
+        monitor.write(write_string)
+        b:nextLine(side)
+        message = string.sub(message, max_x, -1)
+    end
+
     monitor.write(message)
 end
 
@@ -88,4 +101,3 @@ function BenPI.open_modem(self)
         return false
     end
 end
-

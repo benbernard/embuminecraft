@@ -29,6 +29,7 @@ function BenPI.find_peripheral(self, type_string, preferred_side)
     end
 
     for i,side in ipairs(sides) do
+        log("checking side " .. side .. " for type " .. type_string)
         if peripheral.getType(side) == type_string then
             log("Found " .. type_string .. " on " .. side)
             periph = peripheral.wrap(side)

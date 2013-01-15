@@ -1,7 +1,7 @@
 local args = {...}
 local file = args[1]
 
-function loadScript(file, dir)
+function loadScript(file, dirs)
     print("Loading " .. file)
     local request = http.get("https://raw.github.com/benbernard/embuminecraft/master/" .. file)
 
@@ -10,11 +10,15 @@ function loadScript(file, dir)
         return
     end
 
-    local_file = dir .. "/" .. file
-    print("Writing " .. local_file)
-    handle = fs.open(local_file, "w")
-    handle.write(request.readAll())
-    handle.close()
+    contents = request.readAll()
+
+    for i,dir in ipairs(dirs) do
+        local_file = dir .. "/" .. file
+        print("Writing " .. local_file)
+        handle = fs.open(local_file, "w")
+        handle.write(contents)
+        handle.close()
+    end
 end
 
 if args[2] == nil then
@@ -23,15 +27,13 @@ else
     dirs = { args[2] }
 end
 
-for i,dir in ipairs(dirs) do
-    if file == "all" then
-        loadScript("kill", dir)
-        loadScript("fuel-status", dir)
-        loadScript("mov", dir)
-        loadScript("return-to-base", dir)
-        loadScript("loader", dir)
-        loadScript("startup", dir)
-    else
-        loadScript(file, dir)
-    end
+if file == "all" then
+    loadScript("kill", dirs)
+    loadScript("fuel-status", dirs)
+    loadScript("mov", dirs)
+    loadScript("return-to-base", dirs)
+    loadScript("loader", dirs)
+    loadScript("startup", dirs)
+else
+    loadScript(file, dirs)
 end

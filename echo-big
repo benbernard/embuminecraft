@@ -1,7 +1,7 @@
 args  = {...}
 
 function find_monitor()
-    sides = { "front", "back" "left", "right" }
+    sides = { "front", "back", "left", "right" }
     for i,side in ipairs(sides) do
         if peripheral.getType(side) ~= "monitor" then
             print("Found monitor on " .. side)

@@ -12,7 +12,7 @@ function matches_any(slots, comparison)
     return false
 end
 
-function dig_row(max)
+function dig_row(max, slots)
     count=0
     while true do
         -- only go forward up to max, modify max_forward
@@ -21,15 +21,15 @@ function dig_row(max)
             return count
         end
 
-        if matches_any(match_slots, turtle.compareUp) then
+        if matches_any(slots, turtle.compareUp) then
             mt:digUp()
         end
 
-        if matches_any(match_slots, turtle.compareDown) then
+        if matches_any(slots, turtle.compareDown) then
             mt:digDown()
         end
 
-        if matches_any(match_slots, turtle.compare) then
+        if matches_any(slots, turtle.compare) then
             mt:dig()
         else
             return count
@@ -43,7 +43,7 @@ max_col = 4
 max_row = 10
 
 while true do
-    row_size = dig_row(max_row)
+    row_size = dig_row(max_row, match_slots)
     for i=0, row_size do
         mt:b()
     end

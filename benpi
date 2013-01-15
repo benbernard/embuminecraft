@@ -80,13 +80,12 @@ function BenPI.clear(self, side)
 end
 
 function BenPI.open_modem(self)
-    for side, periph in ipairs(self.sides) do
-        if periph == self.modem then
-            rednet.open(side)
-            return true
-        end
+    if self.modem then
+        self.modem.open()
+        return true
+    else
+        log("Could not find modem to open!")
+        return false
     end
-    log("Could not find modem to open!")
-    return false
 end
 

@@ -1,0 +1,11 @@
+os.loadAPI('/benpi')
+
+args = {...}
+
+b = benpi.BenPI.new()
+b:open_modem()
+
+while true do
+    event, sender, message, distance = os.pullEvent('rednet_message')
+    b:writeLine(sender .. ' sent: ' .. message, 'left')
+end

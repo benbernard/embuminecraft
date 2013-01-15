@@ -57,8 +57,11 @@ end
 
 function MoveTracker.max_backward(self)
     log("Max backward")
+    count = 0
     while self:b() do
+        count = count +1
     end
+    return count
 end
 
 function MoveTracker.has_facing(self, facing)
@@ -113,4 +116,25 @@ function MoveTracker.kill_one_forward(self)
             return
         end
     end
+end
+
+function MoveTracker.suck(self)
+    turtle.suck()
+    turtle.suckDown()
+    turtle.suckUp()
+end
+
+function MoveTracker.dig(self)
+    turtle.dig()
+    self:suck()
+end
+
+function MoveTracker.digUp(self)
+    turtle.digUp()
+    self:suck()
+end
+
+function MoveTracker.digDown(self)
+    turtle.digDown()
+    self:suck()
 end

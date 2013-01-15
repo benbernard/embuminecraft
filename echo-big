@@ -1,16 +1,8 @@
 args  = {...}
 
-function find_monitor()
-    sides = { "front", "back", "left", "right" }
-    for i,side in ipairs(sides) do
-        if peripheral.getType(side) == "monitor" then
-            print("Found monitor on " .. side)
-            return peripheral.wrap(side)
-        end
-    end
-end
+os.loadAPI('/benpi')
 
-monitor = find_monitor()
+monitor = benpi.find_monitor()
 for i,str in ipairs(args) do
     monitor.write(str .. " ")
 end

@@ -2,7 +2,7 @@ BenPI = {}
 BenPI_mt = {}
 BenPI_mt.__index = BenPI
 
-debug=true
+debug=false
 
 function log(msg)
     if debug then
@@ -15,9 +15,6 @@ function BenPI.new()
     setmetatable(object, BenPI_mt)
 
     object.sides = {}
-    log(object)
-    log(object.sides)
-    log(object.find_peripheral)
 
     object.monitor = object:find_peripheral("monitor")
     object.modem = object:find_peripheral("modem")
@@ -33,7 +30,7 @@ function BenPI.find_peripheral(self, type_string, preferred_side)
 
     for i,side in ipairs(sides) do
         if peripheral.getType(side) == type_string then
-            print("Found " .. type_string .. " on " .. side)
+            log("Found " .. type_string .. " on " .. side)
             periph = peripheral.wrap(side)
             self.sides[side] = periph
             return periph

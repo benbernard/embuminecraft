@@ -1,0 +1,11 @@
+os.loadAPI('/benpi')
+
+args = {...}
+
+b = benpi.BenPI.new()
+b.clear()
+b.writeLine("Hello EMBU!")
+b.writeLine("I am your friend computer!")
+b.writeLine("I will not destory your base. It is safe.")
+b.writeLine("use echo-big <message>")
+b.writeLine("to leave a message here!")

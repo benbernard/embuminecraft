@@ -1,0 +1,62 @@
+os.loadAPI("/mov")
+
+mt = mov.MoveTracker.new()
+
+function matches_any(slots, comparison)
+    for i,slot in ipairs(slots) do
+        turtle.select(slot)
+        if comparison() then
+            return true
+        end
+    end
+    return false
+end
+
+function digRow(max)
+    count=0
+    while true do
+        -- only go forward up to max, modify max_forward
+        count += mt:max_forward(max - count)
+        if count >= max then
+            return count
+        end
+
+        if matches_any(match_slots, turtle.compareUp) then
+            mt:digUp()
+        end
+
+        if matches_any(match_sides, turtle.compareDown) then
+            mt:digDown()
+        end
+
+        if matches_any(match_slots, turtle.compare) then
+            mt:dig()
+        else
+            return count
+        end
+    end
+end
+
+match_slots = {1,2}
+col_size = 1
+max_col = 4
+max_row = 10
+
+while true do
+    row_size = digRow()
+    for i=0, row_size do
+        mt:b()
+    end
+
+    if col_size+1 > max_col then
+        mt:turn_to(3)
+        mt:max_forwards(col_size)
+        mt:turn_to(0)
+        break
+    end
+
+    mt:turn_to(1)
+    mt:f()
+    col_size = col_size+1
+    mt:turn_to(0)
+end

@@ -1,3 +1,4 @@
+-- vim: set ft=lua :
 print(shell)
 shell.run('/loader', 'all', '/')
 -- shell.run('kill')

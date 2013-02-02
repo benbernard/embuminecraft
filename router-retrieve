@@ -7,7 +7,7 @@ sorter = b.find_peripheral("interactiveSorter")
 input_chest = 4
 chest_contents = sorter.list(input_chest)
 for id,num in pairs(chest_contents) do
-    s.extract(4,id,2)
+    s.extract(4,id,2,1)
 end
 print("done loading router")
 

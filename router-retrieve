@@ -1,1 +1,2 @@
+redstone.setOutput("right", true);
 print("hello world")

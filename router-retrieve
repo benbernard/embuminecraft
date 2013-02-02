@@ -10,13 +10,13 @@ for id,num in pairs(chest_contents) do
     print(id)
     sorter.extract(4,id,5,1)
 
-    sleep(1)
+    sleep(3)
 
     redstone.setOutput("back", false)
     redstone.setOutput("back", true)
     sleep(.5)
     redstone.setOutput("back", false)
-    sleep(.5)
+    sleep(3)
 
     redstone.setOutput("left", false)
     for i=1,64 do

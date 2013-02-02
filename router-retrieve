@@ -9,6 +9,7 @@ for i=1,64 do
     redstone.setOutput("left", true);
     sleep(0.1)
     redstone.setOutput("left", false);
+    sleep(0.1)
 end
 redstone.setOutput("left", false);
 

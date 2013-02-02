@@ -1,14 +1,14 @@
 redstone.setOutput("back", false);
 redstone.setOutput("back", true);
 sleep(1)
-redstone.setoutput("back", false);
+redstone.setOutput("back", false);
 sleep(1)
 
 redstone.setOutput("left", false);
 for i=1,64 do
     redstone.setOutput("left", true);
     sleep(0.1)
-    redstone.setoutput("left", false);
+    redstone.setOutput("left", false);
 end
 redstone.setOutput("left", false);
 

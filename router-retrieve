@@ -7,23 +7,24 @@ sorter = b:find_peripheral("interactiveSorter")
 input_chest = 4
 chest_contents = sorter.list(input_chest)
 for id,num in pairs(chest_contents) do
-    sorter.extract(4,id,2,1)
-end
-print("done loading router")
+    print(id)
+    sorter.extract(4,id,5,1)
 
+    redstone.setOutput("back", false)
+    redstone.setOutput("back", true)
+    sleep(1)
+    redstone.setOutput("back", false)
+    sleep(1)
 
-redstone.setOutput("back", false)
-redstone.setOutput("back", true)
-sleep(1)
-redstone.setOutput("back", false)
-sleep(1)
-
-redstone.setOutput("left", false)
-for i=1,64 do
-    redstone.setOutput("left", true)
-    sleep(0.1)
     redstone.setOutput("left", false)
-    sleep(0.1)
+    for i=1,64 do
+        redstone.setOutput("left", true)
+        sleep(0.1)
+        redstone.setOutput("left", false)
+        sleep(0.1)
+    end
+    redstone.setOutput("left", false)
+
 end
-redstone.setOutput("left", false)
+print("done")
 

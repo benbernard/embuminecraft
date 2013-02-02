@@ -1,12 +1,12 @@
 os.loadAPI('/benpi')
 
-b = BenPI.new()
+b = benpi.BenPI.new()
 
 print("loading router")
 sorter = b.find_peripheral("interactiveSorter")
 input_chest = 4
 chest_contents = sorter.list(input_chest)
-for id,num=pairs(chest_contents) do
+for id,num in pairs(chest_contents) do
     s.extract(4,id,2)
 end
 print("done loading router")

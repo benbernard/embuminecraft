@@ -10,7 +10,7 @@ for id,num in pairs(chest_contents) do
     print(id)
     sorter.extract(4,id,5,1)
 
-    sleep(3)
+    sleep(6)
 
     redstone.setOutput("back", false)
     redstone.setOutput("back", true)
@@ -28,5 +28,12 @@ for id,num in pairs(chest_contents) do
     redstone.setOutput("left", false)
 
 end
+
+sleep(3)
+output_contents = sorter.list(1)
+for id,num in pairs(output_contents) do
+    sorter.extract(1,id,3,1)    
+end
+
 print("done")
 

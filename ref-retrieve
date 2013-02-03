@@ -4,11 +4,14 @@ function get_all_sorts()
    count = 0
    for i,side in ipairs(possible_sides)
    do
-      if peripheral.isPresent(side) and peripheral.getType == "interactiveSorter"
+      if peripheral.isPresent(side) 
       then
-         count = count + 1
-         s = peripgeral.wrap(side)
-         sorts[count] = s
+         print(peripheral.getType(side))
+         if(peripheral.getType == "interactiveSorter") then
+            count = count + 1
+            s = peripgeral.wrap(side)
+            sorts[count] = s
+         end
       end
    end
    sorts["count"] = count

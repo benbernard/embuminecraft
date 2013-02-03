@@ -7,14 +7,14 @@ function get_all_sorts()
       if peripheral.isPresent(side) 
       then
          print(peripheral.getType(side))
-         if(peripheral.getType == "interactiveSorter") then
+         if(peripheral.getType(side) == "interactiveSorter") then
             count = count + 1
             s = peripgeral.wrap(side)
-            sorts[count] = s
+            table.insert(sort,count,s)
          end
       end
    end
-   sorts["count"] = count
+   table.insert(sort,"count",count)
    return sorts
 end
 

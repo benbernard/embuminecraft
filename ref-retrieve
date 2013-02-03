@@ -10,7 +10,7 @@ function get_all_sorts()
          if(peripheral.getType(side) == "interactiveSorter") then
             count = count + 1
             s = peripheral.wrap(side)
-            table.insert(sort,count,s)
+            table.insert(sorts,count,s)
          end
       end
    end

@@ -9,14 +9,21 @@ function get_all_sorts()
          print(peripheral.getType(side))
          if(peripheral.getType(side) == "interactiveSorter") then
             count = count + 1
-            s = peripgeral.wrap(side)
+            s = peripheral.wrap(side)
             table.insert(sort,count,s)
          end
       end
    end
-   table.insert(sort,"count",count)
    return sorts
 end
 
 sorts = get_all_sorts()
-print("found " .. sorts["count"] .. " sort")
+for i,sorter in pairs(sorts) do
+   for i=0,5 
+   do
+      for itemid,count in pairs(sorter.list(i))
+      do
+         print(itemid)
+      end
+   end
+end

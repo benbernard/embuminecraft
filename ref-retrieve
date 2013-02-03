@@ -21,9 +21,11 @@ sorts = get_all_sorts()
 for i,sorter in pairs(sorts) do
    for i=0,5 
    do
-      for itemid,count in pairs(sorter.list(i))
-      do
-         print(itemid)
+      if sorter.list(i) ~= nil then
+         for itemid,count in pairs(sorter.list(i))
+         do
+            print(itemid)
+         end
       end
    end
 end

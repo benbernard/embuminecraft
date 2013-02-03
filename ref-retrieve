@@ -5,7 +5,7 @@ function get_all_sorts()
    for i,side in ipairs(possible_sides)
    do
       if peripheral.isPresent(side) and peripheral.getType == "interactiveSorter"
-      do
+      then
          count = count + 1
          s = peripgeral.wrap(side)
          sorts[count] = s

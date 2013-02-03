@@ -1,0 +1,19 @@
+function get_all_sorts()
+   possible_sides = { "front", "back", "right", "left", "top", "bottom" }
+   sorts = {}
+   count = 0
+   for i,side in ipairs(possible_sides)
+   do
+      if peripheral.isPresent(side) and peripheral.getType == "interactiveSorter"
+      do
+         count = count + 1
+         s = peripgeral.wrap(side)
+         sorts[count] = s
+      end
+   end
+   sorts["count"] = count
+   return sorts
+end
+
+sorts = get_all_sorts()
+print("found " .. sorts["count"] .. " sort")

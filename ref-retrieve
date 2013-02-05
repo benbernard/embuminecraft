@@ -18,6 +18,7 @@ function get_all_sorts()
 end
 
 sorts = get_all_sorts()
+target_item = 0
 for i,sorter in pairs(sorts) do
    for i=0,5 
    do
@@ -25,6 +26,11 @@ for i,sorter in pairs(sorts) do
          for itemid,count in pairs(sorter.list(i))
          do
             print(itemid)
+            if(itemid == target_item) then
+                 topSorter = peripheral.wrap("top");
+                 topSorter.extract(i,itemid,1,1)
+                      
+            end
          end
       end
    end

@@ -28,7 +28,8 @@ function sendItem(target_item)
           if sorter.list(i) ~= nil then
              for itemid,count in pairs(sorter.list(i))
              do
-                print("comparing: " .. itemid)
+                idnum = tonumber(itemid)
+                print("comparing: " .. itemid - target_item)
                 if(itemid == target_item) then
                    print("Item found!")
                    topSorter = peripheral.wrap("top");

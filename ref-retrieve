@@ -54,5 +54,6 @@ while true do
     end
     if(string.sub(message,1,3) == "XXX") then
        exit()
+    end
 end
 --658985989

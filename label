@@ -8,8 +8,8 @@ for item,count in pairs(list) do
 end 
 print("found item " .. itemToLabel)
 
-
-labels = {}
+geturl = "http://www.technofetish.net/minecraft.txt"
+labels = textutils.unserialize(http.get(geturl))
 for i,str in pairs(args) do
    labels[str] = itemToLabel
 end

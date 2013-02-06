@@ -2,7 +2,7 @@ args = {...}
 
 sorter = periperal.wrap("bottom")
 list = sorter.list(4)
-print(list[1])
+print(textutils.serialize(list))
 
 for i,str in ipars(args) do
 

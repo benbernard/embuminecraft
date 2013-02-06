@@ -7,8 +7,10 @@ for item,count in pairs(list) do
    itemToLabel = item
 end 
 print("found item " .. itemToLabel)
---print(textutils.serialize())
 
+
+labels = {}
 for i,str in pairs(args) do
-    
+   labels[str] = itemToLabel
 end
+print(textutils.serialize(labels))

@@ -9,10 +9,14 @@ end
 print("found item " .. itemToLabel)
 
 geturl = "http://www.technofetish.net/minecraft.txt"
-labels = textutils.unserialize(http.get(geturl))
+print http.get(geturl)
+labels = textutils.unserialize()
+print("done deserializing")
+
 for i,str in pairs(args) do
    labels[str] = itemToLabel
 end
+
 posturl = "http://www.technofetish.net/cgi-bin/minecraft_save.cgi"
 serialized = textutils.serialize(labels)
 http.post(posturl, serialized)

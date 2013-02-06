@@ -9,8 +9,9 @@ end
 print("found item " .. itemToLabel)
 
 geturl = "http://www.technofetish.net/minecraft.txt"
-print http.get(geturl)
-labels = textutils.unserialize()
+data http.get(geturl)
+print data
+labels = textutils.unserialize(data)
 print("done deserializing")
 
 for i,str in pairs(args) do

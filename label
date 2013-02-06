@@ -1,0 +1,9 @@
+args = {...}
+
+sorter = periperal.wrap("bottom")
+list = sorter.list(4)
+print(list[1])
+
+for i,str in ipars(args) do
+
+end

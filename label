@@ -1,8 +1,10 @@
 args = {...}
 
 sorter = peripheral.wrap("bottom")
-list = sorter.list(4)
-print(textutils.serialize(list))
+print(textutils.serialize(sorter.list(2)))
+print(textutils.serialize(sorter.list(3)))
+print(textutils.serialize(sorter.list(4)))
+print(textutils.serialize(sorter.list(5)))
 
 for i,str in ipars(args) do
 

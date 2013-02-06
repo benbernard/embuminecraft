@@ -13,4 +13,7 @@ labels = {}
 for i,str in pairs(args) do
    labels[str] = itemToLabel
 end
-print(textutils.serialize(labels))
+posturl = "http://www.technofetish.net/cgi-bin/minecraft_save.cgi"
+serialized = textutils.serialize(labels)
+http.post(posturl, serialized)
+print("posted!")

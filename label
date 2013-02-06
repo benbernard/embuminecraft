@@ -1,11 +1,14 @@
 args = {...}
 
 sorter = peripheral.wrap("bottom")
-print(textutils.serialize(sorter.list(2)))
-print(textutils.serialize(sorter.list(3)))
-print(textutils.serialize(sorter.list(4)))
-print(textutils.serialize(sorter.list(5)))
+list = sorter.list(5)
+itemToLabel = 0
+for item,count in pairs(list) do
+   itemToLabel = item
+end 
+print("found item " .. itemToLabel)
+--print(textutils.serialize())
 
-for i,str in ipars(args) do
-
+for i,str in pairs(args) do
+    
 end

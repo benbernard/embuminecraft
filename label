@@ -1,6 +1,6 @@
 args = {...}
 
-sorter = periperal.wrap("bottom")
+sorter = peripheral.wrap("bottom")
 list = sorter.list(4)
 print(textutils.serialize(list))
 

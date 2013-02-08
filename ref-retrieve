@@ -5,7 +5,7 @@ function onOffBottom()
    while true do
       redstone.setOutput("bottom", bottom)
       sleep(1)
-      bottom = ~bottom
+      bottom = not bottom
    end
 end
 

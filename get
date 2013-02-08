@@ -1,0 +1,13 @@
+labelfile = io.open("labels.dat","r")
+data = labelfile:read("*a")
+labelfile:close()
+
+labels = textutils.unserialize(data)
+rednet.open("right")
+for i,str in pairs(args) do
+   if(labels[str]) then
+      rednet.broadcast("ref"..labels[str])
+      sleep(.5)
+   else
+      print(str .. " not in labels");
+end

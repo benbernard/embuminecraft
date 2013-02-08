@@ -45,7 +45,6 @@ b = benpi.BenPI.new()
 b:open_modem()
 
 while true do
-function onOffBottom()
    redstone.setOutput("bottom", true)
     event, sender, message, distance = os.pullEvent('rednet_message')
    redstone.setOutput("bottom", false)

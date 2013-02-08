@@ -6,6 +6,7 @@ labels = textutils.unserialize(data)
 rednet.open("right")
 for i,str in pairs(args) do
    if(labels[str] == nil) then
+      print("getting: : " .. labels[str])
       rednet.broadcast("ref"..labels[str])
       sleep(.5)
    else

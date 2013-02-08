@@ -5,7 +5,7 @@ labelfile:close()
 labels = textutils.unserialize(data)
 rednet.open("right")
 for i,str in pairs(args) do
-   if(labels[str]) then
+   if(labels[str] == nil) then
       rednet.broadcast("ref"..labels[str])
       sleep(.5)
    else

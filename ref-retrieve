@@ -1,5 +1,14 @@
 os.loadAPI('/benpi')
 
+function onOffBottom()
+   bottom = true
+   while true do
+      redstone.setOutput("bottom", bottom)
+      sleep(1)
+      bottom = ~bottom
+   end
+end
+
 function get_all_sorts()
    possible_sides = { "front", "back", "right", "left", "top", "bottom" }
    sorts = {}
@@ -43,6 +52,9 @@ end
 
 b = benpi.BenPI.new()
 b:open_modem()
+
+led = coroutine.create(onOffBottom)
+coroutine.resume(led)
 
 while true do
     event, sender, message, distance = os.pullEvent('rednet_message')

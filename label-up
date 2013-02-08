@@ -1,0 +1,5 @@
+labelfile = io.open("labels.dat","r")
+data = labelfile:read("*a")
+posturl = "http://www.technofetish.net/cgi-bin/minecraft_save.cgi"
+http.post(posturl, data)
+print("posted!")

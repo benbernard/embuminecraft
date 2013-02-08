@@ -1,0 +1,7 @@
+geturl = "http://www.technofetish.net/minecraft.txt"
+data = http.get(geturl).readAll()
+labelfile = io.open("labels.dat","w")
+labelfile:write(data)
+labelfile:flush()
+labelfile:close()
+print("downloaded!")

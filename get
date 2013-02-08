@@ -1,3 +1,5 @@
+args = {...}
+
 labelfile = io.open("labels.dat","r")
 data = labelfile:read("*a")
 labelfile:close()

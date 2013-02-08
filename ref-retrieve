@@ -18,6 +18,7 @@ function waitForSignal()
        id=tonumber(string.sub(message,4))
        print("searching for " .. id)
        if(sendItem(id)) then
+          sleep(.5)
           print("sending found to " .. sender)
           rednet.broadcast("found" .. id, false)
        end

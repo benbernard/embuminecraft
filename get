@@ -10,8 +10,7 @@ for i,str in pairs(args) do
    if(labels[str] ~= nil) then
       rednet.broadcast("ref"..labels[str])
       sleep(.5)
-      event, sender, message, distance = os.pullEvent('rednet_message')
-      print(message)
+      rednet.receive(1)
       if(message == "found" .. labels[str]) then
          print(str .. " found by " .. sender)
       else

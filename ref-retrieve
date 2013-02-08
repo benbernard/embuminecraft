@@ -19,7 +19,7 @@ function waitForSignal()
        print("searching for " .. id)
        if(sendItem(id)) then
           print("sending found to " .. sender)
-          rednet.send(sender,"found" .. id, false)
+          rednet.broadcast("found" .. id, false)
        end
     end
     if(string.sub(message,1,3) == "XXX") then

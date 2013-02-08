@@ -8,9 +8,14 @@ labels = textutils.unserialize(data)
 rednet.open("right")
 for i,str in pairs(args) do
    if(labels[str] ~= nil) then
-      print("getting: : " .. labels[str])
       rednet.broadcast("ref"..labels[str])
-      sleep(.5)
+      sender, message, dist = rednet.receive(.5)
+      if(message == "found" .. labels[str]) then
+         print(str .. " found by " .. sender)
+      else
+         print(str .. " not found")
+      end
+      
    else
       print(str .. " not in labels");
    end

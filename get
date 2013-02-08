@@ -10,4 +10,5 @@ for i,str in pairs(args) do
       sleep(.5)
    else
       print(str .. " not in labels");
+   end
 end

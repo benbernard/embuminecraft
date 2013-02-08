@@ -6,7 +6,7 @@ function onOffBottom()
    bottom = true
    while true do
       redstone.setOutput("bottom", bottom)
-      sleep(1)
+      sleep(3)
       bottom = not bottom
    end
 end
@@ -74,9 +74,8 @@ b = benpi.BenPI.new()
 b:open_modem()
 
 
-
 while not exit do
-   print("Waiting for signal.  Press [enter] to exit.")
+   print("REF-RETRIEVE waiting for signal.  Press [enter] to exit.")
    parallel.waitForAny(onOffBottom, waitForSignal, waitForEnter)
 end
 --658985989

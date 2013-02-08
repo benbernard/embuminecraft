@@ -8,17 +8,18 @@ for item,count in pairs(list) do
 end 
 print("found item " .. itemToLabel)
 
-geturl = "http://www.technofetish.net/minecraft.txt"
-data = http.get(geturl).readAll()
-print(data)
+labelfile = io.open("labels.dat","r")
+data = labelfile:read("*a")
+labelfile:close()
+
 labels = textutils.unserialize(data)
-print("done deserializing")
 
 for i,str in pairs(args) do
    labels[str] = itemToLabel
 end
 
-posturl = "http://www.technofetish.net/cgi-bin/minecraft_save.cgi"
 serialized = textutils.serialize(labels)
-http.post(posturl, serialized)
-print("posted!")
+labelfile = io.open("labels.dat","w")
+labelfile:write(serialized)
+labelfile:flush()
+labelfile:close()

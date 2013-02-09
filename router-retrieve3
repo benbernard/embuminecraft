@@ -10,8 +10,9 @@ ref_repo = 3
 function pulse(direction)
    redstone.setOutput(direction, false);
    redstone.setOutput(direction, true);
-   sleep(.5)
+   sleep(.3)
    redstone.setOutput(direction, false);
+   sleep(.2)
 end
 
 function onOffBottom()
@@ -38,7 +39,10 @@ function waitForRefObject()
          for id,num in pairs(chest_contents) do
             print(id)
             sorter.extract(ref_chest,id,retr_chest,num)
-            pulse("back")
+            local i
+            for i=0,64 do
+               pulse("back")
+            end
             sleep(1)
             sorter.extract(retr_chest,id,ref_repo,num)
          end

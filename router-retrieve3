@@ -44,6 +44,7 @@ function waitForRefObject()
             sleep(20)
             redstone.setOutput("back",true)
             sorter.extract(retr_chest,id,ref_repo,num)
+            sleep(10)
          end
       end
    end

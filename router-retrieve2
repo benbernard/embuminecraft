@@ -35,10 +35,12 @@ end
 
 function waitForRefObject()
    while true do
+      local chest_contents
       chest_contents = bottom_sorter.list(input_chest)
       if(next(chest_contents) == nil) then
          sleep(.5)
       else
+         local id,num
          for id,num in pairs(chest_contents) do
             print(id)
             desired_object[id] = 1
@@ -62,10 +64,12 @@ end
 
 function waitForFromRouterObject()
    while true do
+      local chest_contents
       chest_contents = top_sorter.list(from_router_chest)
       if(next(chest_contents) == nil) then
          sleep(.5)
       else
+         local id,num
          for id,num in pairs(chest_contents) do
             if(desired_objects[id] == 1) then
                desired_objects[id] = 0

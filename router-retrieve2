@@ -72,7 +72,7 @@ function waitForFromRouterObject()
                top_sorter.extract(from_router_chest,id,ref_repo,1)
                top_sorter.extract(from_router_chest,id,output_chest, num-1)
             else
-               top_sorter.extract(from_rounter_chest,id,misc,num)
+               top_sorter.extract(1,id,5,num)
             end
          end
       end

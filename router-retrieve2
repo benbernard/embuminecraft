@@ -1,8 +1,8 @@
 os.loadAPI('/benpi')
 
 b = benpi.BenPI.new()
-top_sorter = periperheral.wrap("top");
-bottom_sorter = periperheral.wrap("bottom");
+top_sorter = peripheral.wrap("top");
+bottom_sorter = peripheral.wrap("bottom");
 
 input_chest = 4
 router_chest = 5

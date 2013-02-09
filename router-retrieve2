@@ -43,7 +43,7 @@ function waitForRefObject()
          local id,num
          for id,num in pairs(chest_contents) do
             print(id)
-            desired_object[id] = 1
+            desired_objects[id] = 1
             bottom_sorter.extract(input_chest,id,router_chest,1)
             sleep(3)
 

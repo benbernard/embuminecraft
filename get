@@ -14,7 +14,7 @@ for i,str in pairs(args) do
       if(message == "found" .. labels[str]) then
          print(str .. " found by " .. sender)
       else
-         print(str .. " not found")
+--         print(str .. " not found")
       end
       
    else

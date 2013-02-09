@@ -26,24 +26,26 @@ function waitForEnter()
 end
 
 function waitForObject()
-   chest_contents = sorter.list(input_chest)
-   if(chest_contents == nil) then
-      print("chest empty")
-      sleep(.5)
-   else
-      for id,num in pairs(chest_contents) do
-         print(id)
-         sorter.extract(4,id,5,1)
-         sleep(3)
+   while true do
+      chest_contents = sorter.list(input_chest)
+      if(chest_contents == nil) then
+         print("chest empty")
+         sleep(.5)
+      else
+         for id,num in pairs(chest_contents) do
+            print(id)
+            sorter.extract(4,id,5,1)
+            sleep(3)
 
-         -- activate block construct/destructor
-         pulse("back")
+            -- activate block construct/destructor
+            pulse("back")
 
-         sleep(3)
-         
-         --active filter from router
-         pulse("left")
+            sleep(3)
+            
+            --active filter from router
+            pulse("left")
 
+         end
       end
    end
 end

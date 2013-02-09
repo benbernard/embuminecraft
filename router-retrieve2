@@ -60,6 +60,7 @@ function waitForFromRouterObject()
       else
          for id,num in pairs(chest_contents) do
             sorter.extract(from_router_chest,id,ref_repo,1)
+            sleep(.5)
             sorter.extract(from_router_chest,id,output_chest)
          end
       end

@@ -4,7 +4,7 @@ b = benpi.BenPI.new()
 sorter = peripheral.wrap("top");
 
 ref_chest = 1
-retreiver_chest = 2
+retr_chest = 2
 
 function pulse(direction)
    redstone.setOutput(direction, false);
@@ -36,7 +36,7 @@ function waitForRefObject()
          local id,num
          for id,num in pairs(chest_contents) do
             print(id)
-            sorter.extract(ref_chest,id,retriever_chest,num)
+            sorter.extract(ref_chest,id,retr_chest,num)
             pulse("back")
             sleep(1)
          end

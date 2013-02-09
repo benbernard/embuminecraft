@@ -1,12 +1,17 @@
 os.loadAPI('/benpi')
 
 b = benpi.BenPI.new()
-sorter = b:find_peripheral("interactiveSorter")
+top_sorter = periperheral.wrap("top");
+bottom_sorter = periperheral.wrap("bottom");
+
 input_chest = 4
 router_chest = 5
 ref_repo = 3
 from_router_chest = 1
 output_chest = 2
+misc = 5
+
+desired_objects = {}
 
 function pulse(direction)
    redstone.setOutput(direction, false);
@@ -30,13 +35,14 @@ end
 
 function waitForRefObject()
    while true do
-      chest_contents = sorter.list(input_chest)
+      chest_contents = bottom_sorter.list(input_chest)
       if(next(chest_contents) == nil) then
          sleep(.5)
       else
          for id,num in pairs(chest_contents) do
             print(id)
-            sorter.extract(input_chest,id,router_chest,1)
+            desired_object[id] = 1
+            bottom_sorter.extract(input_chest,id,router_chest,1)
             sleep(3)
 
             -- activate block construct/destructor
@@ -44,9 +50,10 @@ function waitForRefObject()
 
             sleep(3)
             
-            --active filter from router
-            pulse("left")
-            
+            for i=0,10 do
+               --active filter from router
+               pulse("left")
+            end
             sleep(4)
          end
       end
@@ -55,13 +62,18 @@ end
 
 function waitForFromRouterObject()
    while true do
-      chest_contents = sorter.list(from_router_chest)
+      chest_contents = top_sorter.list(from_router_chest)
       if(next(chest_contents) == nil) then
          sleep(.5)
       else
          for id,num in pairs(chest_contents) do
-            sorter.extract(from_router_chest,id,ref_repo,1)
-            sorter.extract(from_router_chest,id,output_chest, num-1)
+            if(desired_objects[id] == 1) then
+               desired_objects[id] = 0
+               top_sorter.extract(from_router_chest,id,ref_repo,1)
+               top_sorter.extract(from_router_chest,id,output_chest, num-1)
+            else
+               top_sorter.extract(from_rounter_chest,id,misc,num)
+            end
          end
       end
    end

@@ -6,6 +6,7 @@ sorter = peripheral.wrap("top");
 ref_chest = 1
 retr_chest = 2
 ref_repo = 3
+redstone.setOutput("back",true)
 
 function pulse(direction)
    redstone.setOutput(direction, false);
@@ -39,11 +40,9 @@ function waitForRefObject()
          for id,num in pairs(chest_contents) do
             print(id)
             sorter.extract(ref_chest,id,retr_chest,num)
-            local i
-            for i=0,64 do
-               pulse("back")
-            end
-            sleep(1)
+            redstone.setOutput("back",false)
+            sleep(20)
+            redstone.setOutput("back",true)
             sorter.extract(retr_chest,id,ref_repo,num)
          end
       end

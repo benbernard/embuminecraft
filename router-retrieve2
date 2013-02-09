@@ -55,6 +55,7 @@ function waitForRefObject()
             for i=0,10 do
                --active filter from router
                pulse("left")
+               sleep(.5)
             end
             sleep(4)
          end

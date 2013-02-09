@@ -29,7 +29,6 @@ function waitForObject()
    while true do
       chest_contents = sorter.list(input_chest)
       if(next(chest_contents) == nil) then
-         print("chest empty")
          sleep(.5)
       else
          for id,num in pairs(chest_contents) do

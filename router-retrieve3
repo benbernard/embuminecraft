@@ -1,0 +1,50 @@
+os.loadAPI('/benpi')
+
+b = benpi.BenPI.new()
+sorter = peripheral.wrap("top");
+
+ref_chest = 1
+retreiver_chest = 2
+
+function pulse(direction)
+   redstone.setOutput(direction, false);
+   redstone.setOutput(direction, true);
+   sleep(.5)
+   redstone.setOutput(direction, false);
+end
+
+function onOffBottom()
+   bottom = true
+   while true do
+      redstone.setOutput("bottom", bottom)
+      sleep(2)
+      bottom = not bottom
+   end
+end
+
+function waitForEnter()
+   read()
+end
+
+function waitForRefObject()
+   while true do
+      local chest_contents
+      chest_contents = sorter.list(ref_chest)
+      if(next(chest_contents) == nil) then
+         sleep(.5)
+      else
+         local id,num
+         for id,num in pairs(chest_contents) do
+            print(id)
+            sorter.extract(ref_chest,id,retriever_chest,num)
+            pulse("back")
+            sleep(1)
+         end
+      end
+   end
+end
+
+
+print("ROUTER-RETRIEVE")
+print("Press [enter] to exit.")
+parallel.waitForAny(waitForRefObject, waitForEnter, onOffBottom)

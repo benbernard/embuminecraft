@@ -58,6 +58,8 @@ function waitForRefObject()
                sleep(.5)
             end
             sleep(4)
+            print("done with first pass, check router")
+            read()
          end
       end
    end

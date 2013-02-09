@@ -1,0 +1,53 @@
+os.loadAPI('/benpi')
+
+b = benpi.BenPI.new()
+sorter = b:find_peripheral("interactiveSorter")
+input_chest = 4
+
+
+function pulse(direction)
+   redstone.setOutput(direction, false);
+   redstone.setOutput(direction, true);
+   sleep(.5)
+   redstone.setOutput(direction, false);
+end
+
+function onOffBottom()
+   bottom = true
+   while true do
+      redstone.setOutput("bottom", bottom)
+      sleep(2)
+      bottom = not bottom
+   end
+end
+
+function waitForEnter()
+   read()
+end
+
+function waitForObject()
+   chest_contents = sorter.list(input_chest)
+   if(chest_contents == nil) then
+      print("chest empty")
+      sleep(.5)
+   else
+      for id,num in pairs(chest_contents) do
+         print(id)
+         sorter.extract(4,id,5,1)
+         sleep(3)
+
+         -- activate block construct/destructor
+         pulse("back")
+
+         sleep(3)
+         
+         --active filter from router
+         pulse("left")
+
+      end
+   end
+end
+
+print("ROUTER-RETRIEVE")
+print("Press [enter] to exit.")
+paralell.waitForAny(waitForObject, waitForEnter, onOffBottom)

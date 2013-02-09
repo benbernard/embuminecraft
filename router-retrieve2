@@ -46,7 +46,8 @@ function waitForRefObject()
             
             --active filter from router
             pulse("left")
-
+            
+            sleep(2)
          end
       end
    end

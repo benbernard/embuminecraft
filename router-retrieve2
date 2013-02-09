@@ -50,4 +50,4 @@ end
 
 print("ROUTER-RETRIEVE")
 print("Press [enter] to exit.")
-paralell.waitForAny(waitForObject, waitForEnter, onOffBottom)
+parallel.waitForAny(waitForObject, waitForEnter, onOffBottom)

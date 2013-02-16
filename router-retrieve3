@@ -41,10 +41,8 @@ function waitForRefObject()
             print(id)
             sorter.extract(ref_chest,id,retr_chest,num)
             currentNum = num
-            for i=1,6 do
-               redstone.setOutput("back",false)
-               sleep(.5)
-               redstone.setOutput("back",true)
+            for i=1,7 do
+               pulse("back")
                if(currentNum > 1) then
                   local half 
                   half = math.ceil(currentNum / 2)

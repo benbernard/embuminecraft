@@ -51,7 +51,7 @@ function waitForRefObject()
                end
             end
             sorter.extract(retr_chest,id,ref_repo,currentNum)
-            --sleep(10)
+            sleep(.5)
          end
       end
    end

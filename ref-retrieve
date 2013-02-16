@@ -65,7 +65,7 @@ function sendItem(target_item)
                 if(itemid == target_item) then
                    print("Item found!")
                    topSorter = peripheral.wrap("top");
-                   topSorter.extract(i,itemid,1,1)
+                   topSorter.extract(i,itemid,1,count)
                    return true
                 end
              end

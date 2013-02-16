@@ -36,14 +36,23 @@ function waitForRefObject()
       if(next(chest_contents) == nil) then
          sleep(.5)
       else
-         local id,num
+         local id,num,i,currentNum
          for id,num in pairs(chest_contents) do
             print(id)
             sorter.extract(ref_chest,id,retr_chest,num)
-            redstone.setOutput("back",false)
-            sleep(20)
-            redstone.setOutput("back",true)
-            sorter.extract(retr_chest,id,ref_repo,num)
+            currentNum = num
+            for i=1,5 do
+               redstone.setOutput("back",false)
+               sleep(.5)
+               redstone.setOutput("back",true)
+               if(currentNum > 1) then
+                  local half 
+                  half = math.ceil(currentNum / 2)
+                  sorter.extract(retr_chest,id,ref_repo,half)
+                  currentNum = currentNum - half
+               end
+            end
+            sorter.extract(retr_chest,id,ref_repo,currentNum)
             --sleep(10)
          end
       end
